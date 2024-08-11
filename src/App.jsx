@@ -6,7 +6,7 @@ const App = () => {
     {text1:"Indulge", text2:"Your passions"},
     {text1:"Give in to", text2:"your passions"},
   ]
-  const [heroCount, setHeroCount] = useState(2)
+  const [heroCount, setHeroCount] = useState(1)
   const [playStatus, setPlayStatus] = useState(false)
   return (
     <div>
