@@ -1,4 +1,5 @@
-
+import { useState } from "react"
+import Background from "./components/Background/Background"
 
 const App = () => {
   let heroData = [
