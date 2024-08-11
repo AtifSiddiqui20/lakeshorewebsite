@@ -8,7 +8,7 @@ const App = () => {
     {text1:"Give in to", text2:"your passions"},
   ]
   const [heroCount, setHeroCount] = useState(1)
-  const [playStatus, setPlayStatus] = useState(false)
+  const [playStatus, setPlayStatus] = useState(true)
   return (
     <div>
       <Background playStatus={playStatus} heroCount = {heroCount} />

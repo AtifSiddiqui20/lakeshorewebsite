@@ -7,7 +7,7 @@ import image3 from '../../assets/image3.png'
 const Background = ({playStatus, heroCount}) => {
     if (playStatus) {
         return (
-            <video className = 'background' autoplay loop muted>
+            <video className = 'background' autoPlay loop muted>
                 <source src = {video1} type = 'video/mp4' />
             </video>
         )
