@@ -1,7 +1,9 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Background from "./Components/Background/Background"
 import Navbar from "./Components/Navbar/Navbar"
 import Hero from "./Components/Hero/Hero"
+import Contact  from "./Components/Contact/Contact"
 
 const App = () => {
   let heroData = [
@@ -11,19 +13,33 @@ const App = () => {
   ]
   const [heroCount, setHeroCount] = useState(1)
   const [playStatus, setPlayStatus] = useState(false)
+  useEffect(() => {
+    setInterval(() => {
+      setHeroCount((count) =>{return count ===2?0: count+1})
+      
+    }, 3000);
+  }, [])
+  
   return (
     <div>
       <Background playStatus={playStatus} heroCount = {heroCount} />
-      <Navbar />
-      <Hero
-        setPlayStatus={setPlayStatus}
-        heroData={heroData[heroCount]}
-        heroCount={heroCount} 
-        setHeroCount={setHeroCount}
-        playStatus={playStatus} 
-      />
+      <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/contact" element={<Contact />} />
+                {/* Add other routes here */}
+            </Routes>
+        
+        <Hero
+          setPlayStatus={setPlayStatus}
+          heroData={heroData[heroCount]}
+          heroCount={heroCount} 
+          setHeroCount={setHeroCount}
+          playStatus={playStatus} 
+        />
 
-    </div>
+      </div>
+    </Router>
   )
 }
 
