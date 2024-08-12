@@ -18,29 +18,35 @@ const App = () => {
       setHeroCount((count) =>{return count ===2?0: count+1})
       
     }, 3000);
+
+    
+    
   }, [])
   
   return (
-    <div>
-      <Background playStatus={playStatus} heroCount = {heroCount} />
-      <Router>
-            <Navbar />
-            <Routes>
-                <Route path="/contact" element={<Contact />} />
-                {/* Add other routes here */}
-            </Routes>
-        
+    <Router>
+      <div>
+
+        <Background playStatus={playStatus} heroCount={heroCount} />
+
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Hero setPlayStatus={setPlayStatus} heroData={heroData[heroCount]} heroCount={heroCount} setHeroCount={setHeroCount} playStatus={playStatus} />} />  
+          <Route path="/contact" element={<Contact />} />
+          
+        </Routes>
+
         <Hero
           setPlayStatus={setPlayStatus}
           heroData={heroData[heroCount]}
-          heroCount={heroCount} 
+          heroCount={heroCount}
           setHeroCount={setHeroCount}
-          playStatus={playStatus} 
+          playStatus={playStatus}
         />
 
       </div>
     </Router>
-  )
-}
+  );
+};
 
 export default App
